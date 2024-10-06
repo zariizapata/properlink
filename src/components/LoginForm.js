@@ -1,8 +1,11 @@
 // src/components/LoginForm.js
 import React from 'react';
 import { TextField, Button, Container, Typography, Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // Aquí puedes manejar el envío del formulario
@@ -21,7 +24,7 @@ const LoginForm = () => {
         display: 'flex',           // Usar flexbox
         justifyContent: 'center',  // Centrar horizontalmente
         alignItems: 'center',      // Centrar verticalmente
-        minHeight: '100vh'         // Asegurarse de que ocupa toda la altura
+        minHeight: '100vh'         // Asegurar que ocupa toda la altura
       }}
     >
       <Box
@@ -65,17 +68,18 @@ const LoginForm = () => {
           >
             Acceder
           </Button>
+
+          {/* Botón para redirigir al formulario de registro */}
           <Button
             variant="outlined"
-            color="grey"
             fullWidth
             sx={{ 
               marginTop: 2, 
               border: 0 
             }}
-            onClick={() => console.log('Cancelar')}
+            onClick={() => navigate('/signup')}
           >
-            Cancelar
+            Crear cuenta
           </Button>
         </form>
       </Box>
